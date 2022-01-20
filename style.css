@@ -11,6 +11,7 @@ body {
   position: sticky;
 
   top: 0;
+  text-align: center;
 }
 
 .promo {
@@ -21,26 +22,49 @@ body {
 }
 
 .nav {
-  text-align: center;
-
   background: rgba(0,0,0,0.8);
   backdrop-filter: saturate(180%) blur(20px);
 }
 
+
 .nav__list {
+  height: 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
   margin: 0;
   padding: 0;
   list-style: none;
+
+  overflow: hidden;
+
+  transition: height 0.3s;
 }
 
-.nav__item {
-  display: inline-block;
+@media (min-width: 640px) {
+  .nav__list {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.nav-toggler-label {
+  color: white;
+  cursor: pointer;
+}
+
+.nav-toggler {
+  display: none;
+}
+
+.nav-toggler:checked + .nav__list {
+  display: flex;
+  height: auto;
 }
 
 .nav__link {
-  display: inline-block;
+  display: block;
   padding: 10px 5px;
-
   margin: 0 20px;
 
   text-decoration: none;
@@ -51,4 +75,28 @@ body {
 
 .nav__link:hover {
   color: aqua;
+}
+
+.main {
+  padding: 10px 20px;
+  background-color: antiquewhite;
+}
+
+.footer {
+  position: sticky;
+  bottom: 0;
+  z-index: -1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 300px;
+
+  color: #fff;
+  text-align: center;
+
+  background-image: url("https://mate-academy.github.io/fe-program/assets/MA_bottom.jpg");
+  background-size: cover;
+  background-position: top;
 }
